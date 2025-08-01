@@ -1,4 +1,4 @@
-# Hackathon App
+# peeK - VUW Hackathon25
 
 peeK is a platform that specialises in preserving and celebrating everyday memories that are lost in our daily routines. Share, explore and interact with your friends' collections and keep memories in real time by using the daily “peaked” feature. peeK keeps your content stored in categorised and tagged collections so you can keep everything cleanly stored, the beta testing phase will produce the following,
 
