@@ -3,7 +3,7 @@
 ## Setting Up
 
 Clone the repo:
-```
+```bash
 git clone https://github.com/jessica-meyer/hackathon.git
 cd hackathon
 ```
@@ -11,8 +11,8 @@ cd hackathon
 ## Creating Branches
 
 Always create a new branch for your work:
-```
-git checkout -b feature/<your-feature-name>
+```bash
+git checkout -b feature/your-feature-name
 ```
 
 Examples:
@@ -21,22 +21,25 @@ Examples:
 - refactor/api-calls
 
 ### Push your branch:
-```
-git push origin feature/<your-feature-name>
+```bash
+git add . # Add all changes to the staging area
+git commit -S -m "feat: add awesome stuff" # Commit with a descriptive message
+git push -u origin feature/your-feature-name # Push the changes to the remote repository
 ```
 
 ### Syncing with Main
 
 Before starting work or opening a PR:
-```
+```bash
 git checkout main
 git pull origin main
 ```
 
-### To update your branch:
-```
-git checkout feature/<your-feature>
-git merge main
+### Keep your branch up-to-date
+```bash
+git fetch origin # Fetch the latest changes from the remote repository
+git merge origin/main # Merge the latest main branch changes into your feature branch
+git push # Push the changes to the remote repository
 ```
 
 ## Submitting Pull Requests (PRs)
@@ -55,7 +58,7 @@ All code must be reviewed before merging to main. Keep your commits clean and de
 ### Tips
 
 - Use clear commit messages eg:
-```
+```bash
 git commit -m "Add camera permission check"
 ```
 - Make small, focused PRs
