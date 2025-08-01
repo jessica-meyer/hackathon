@@ -1,13 +1,17 @@
 # Hackathon App
 
-This is a collaborative Android app project built during a hackathon. Our app combines the best parts of social interaction, discovery, and creativity — including wardrobe sharing, random video chats, and finding local food/stuff — all in one place.
+peeK is a platform that specialises in preserving and celebrating everyday memories that are lost in our daily routines. Share, explore and interact with your friends' collections and keep memories in real time by using the daily “peaked” feature. peeK keeps your content stored in categorised and tagged collections so you can keep everything cleanly stored, the beta testing phase will produce the following,
 
 ## Features
 
-- Scrollable video chat like TikTok/Omegle
-- Wardrobe and item sharing system
-- Pinterest-style idea board
-- "Tinder for Stuff" — swipe through local food, clothes, and more
+- peeK Home exploration page
+   - See your friend’s collections in real time! Interact and swipe left or right to see more collections similar or drop a star to send your friend kudos
+- peeK myCollections
+   - Build your personal profile! Equipped with a personal picture
+   - Your top favored collections
+   - And many more collections along the way!
+- peeK Discover 
+   - Find new friends! Enjoy new collections with likeminded people
 
 ## Tech Stack
 
