@@ -33,7 +33,7 @@ We follow the feature-branch workflow:
 
 ## Contribution
 
-See `CONTRIBUTING.txt` for collaboration rules and Git instructions.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for collaboration rules and Git instructions.
 
 ## License
 
