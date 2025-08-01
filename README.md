@@ -37,4 +37,4 @@ See `CONTRIBUTING.txt` for collaboration rules and Git instructions.
 
 ## License
 
-See `LICENSE.txt` for MIT License.
+See `LICENSE` for MIT License.
