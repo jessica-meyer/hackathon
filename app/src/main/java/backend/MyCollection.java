@@ -4,26 +4,26 @@
  * This Java file specifies how data is stored for each collection in the app.
  */
 
-import java.nio.file.Path;
+package backend;
 import java.util.ArrayList;
-import java.awt.Color;
+import android.graphics.Color;
 
 
-public class myCollection {
+public class MyCollection {
     /* Fields */
     private String collectionID;
     private String ownerUID;
     private String name;
     private String description;
     private int starCount;
-    private Color col1;
-    private Color col2;
-    private Path icon;
+    private int col1;
+    private int col2;
+    private String icon;
     private ArrayList<Item> items = new ArrayList<Item>();
     /* Fields */
 
     /* Constructor */
-    public myCollection(String ID, String UID, String name, String description, Path icon){
+    public myCollection(String ID, String UID, String name, String description, String icon){
         this.collectionID = ID;
         this.ownerUID = UID;
         this.name = name;
@@ -81,7 +81,7 @@ public class myCollection {
     public int getStarCount(){
         return this.starCount;
     }
-    public Color getColor(int index){
+    public int getColor(int index){
         if(index == 1)
             return col1;
         else if(index == 2)
@@ -113,7 +113,7 @@ public class myCollection {
         this.starCount = starCount;
     }
 
-    public void setColor(int index, Color color){
+    public void setColor(int index, int color){
         if(index == 1)
             this.col1 = color;
         else if(index == 2)

@@ -1,6 +1,6 @@
 /*
 * 2025 Freshies
-* database.java
+* Database.java
 * This Java file reads data in the backend and converts it to
 * user, collection, and item objects.
 */
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.awt.Color;
 
 
-public class database {
+public class Database {
     /* Fields */
     private String fileName = "users";
     private ArrayList<String> collectionIDS = new ArrayList<String>();
