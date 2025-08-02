@@ -1,29 +1,33 @@
-/*
+package backend;/*
 * 2025 Freshies
-* database.java
+* Database.java
 * This Java file reads data in the backend and converts it to
 * user, collection, and item objects.
 */
 
+//Read FILESTRUCTURE.txt for a better understanding of scanner
 //Run readAll, then use getters to get info
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.awt.Color;
 
 
-public class database {
+public class Database {
     /* Fields */
-    private String fileName = "users";
-    private ArrayList<String> collectionIDS = new ArrayList<String>();
+    private final String fileName = "users";
+    private static ArrayList<String> collectionIDS = new ArrayList<String>();
     private user thisUser;
-    private ArrayList<user> allUsers = new ArrayList<user>();
-    private ArrayList<user> friends = new ArrayList<user>();
-    private ArrayList<myCollection> allCollections = new ArrayList<myCollection>();
+    private static ArrayList<user> allUsers;
+    private static ArrayList<user> friends;
+    private static ArrayList<MyCollection> allCollections;
+
+    /* Constructor */
+    public Database(){
+        allUsers = new ArrayList<user>();
+        friends = new ArrayList<user>();
+        allCollections = new ArrayList<MyCollection>();
+    }
 
     /* Getters */
     public user getUser(){
@@ -35,9 +39,11 @@ public class database {
     public ArrayList<user> getfriends(){
         return friends;
     }
-    public ArrayList<myCollection> getCollections(){
+    public ArrayList<MyCollection> getCollections(){
         return allCollections;
     }
+
+
 
     /* Methods */
     /**
@@ -48,14 +54,15 @@ public class database {
      */
     public void readAll(){
         try{
-            File userData = new File(fileName);
-            Scanner scanner = new Scanner(userData);
+            File file = new File(fileName);
+            Scanner scanner = new Scanner(file);
             while(scanner.hasNextLine()){
                 String uid = scanner.nextLine();
                 String name = scanner.nextLine();
-                Path avatar = Paths.get(scanner.nextLine());
+                String avatar = scanner.nextLine();
                 String bio = scanner.nextLine();
-                Color color = Color.decode(scanner.nextLine());
+                scanner.nextInt();
+                int color = 32;
                 user userData = new user(uid, name, avatar, bio, color);
                 while(!scanner.hasNextInt()){
                     userData.addFriend(scanner.next());
@@ -66,8 +73,8 @@ public class database {
                 scanner.nextLine();
             }
             scanner.close();
-        }catch(Exception e){
-            e.printStackTrace();
+        }catch(Exception ignored){
+
         }
     }
 
@@ -77,7 +84,7 @@ public class database {
      * output: collection object
      * Reads collection data and converts to object from text
      */
-    public myCollection readCollection(int collectionID){
+    public MyCollection readCollection(int collectionID){
         try{
             String path = "collections/";
             File collectionData = new File("collections/" + collectionID);
@@ -85,26 +92,35 @@ public class database {
             String ownerUID = scanner.nextLine();
             String name = scanner.nextLine();
             String description = scanner.nextLine();
-            String stringimagePath = scanner.nextLine();
-            Path imagePath = Paths.get(stringimagePath);
-            myCollection thisCollection = new myCollection(collectionID, ownerUID, name, description,imagePath);
+            String stringImagePath = scanner.nextLine();
+            String imagePath = stringImagePath+"/c.jpg";
+            MyCollection thisCollection = new MyCollection(collectionID, ownerUID, name, description,imagePath);
             while(scanner.hasNextLine()){
                 scanner.nextLine();
                 int position = scanner.nextInt();
                 scanner.nextLine();
                 String itemName = scanner.nextLine();
                 scanner.nextLine();
-                String caption = scanner.nextLine();
+
+                StringBuilder captionBuilder = new StringBuilder();
+                String line;
+                // Loop to accomodate multiline captions
+                while (scanner.hasNextLine()) {
+                    line = scanner.nextLine();
+                    if (line.trim().equals("/")) break; // End of caption block
+                    captionBuilder.append(line).append("\n");
+                }
+                String caption = captionBuilder.toString().trim();
+                
                 scanner.nextLine();
-                Path itemPath = Paths.get(stringimagePath + "/" + position + ".jpg");
-                Item item = new item(position, itemName, caption, itemPath);
+                String itemPath = stringImagePath + "/" + position + ".jpg";
+                Item item = new Item(position, itemName, caption, itemPath);
                 thisCollection.addItem(item);
             }
             allCollections.add(thisCollection);
             scanner.close();
             return thisCollection;
-        }catch(Exception e){
-            e.printStackTrace();
+        }catch(Exception ignored){
             return null;
         }
     }

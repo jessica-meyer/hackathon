@@ -3,29 +3,34 @@
  * user.java
  * This Java file specifies how data is stored for each user in the app.
  */
+
+package backend;
+import backend.MyCollection;
+import backend.Item;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.awt.Color;
 
 
 public class user {
     /* Fields */
     private String uid;
     private String name;
-    private Path avatar;
+    private String avatar;
     private String bio;
-    private Color color;
-    private ArrayList<String> friends = new ArrayList<String>();
-    private ArrayList<myCollection> collections = new ArrayList<myCollection>();
+    private int color;
+    private ArrayList<String> friends;
+    private ArrayList<MyCollection> collections;
     /* Fields */
 
     /* Constructor */
-    public user(String uid, String name, Path avatar, String bio, Color color){
+    public user(String uid, String name, String avatar, String bio, int color){
         this.uid = uid;
         this.name = name;
         this.avatar = avatar;
         this.bio = bio;
         this.color = color;
+        friends = new ArrayList<String>();
+        collections = new ArrayList<MyCollection>();
     }
 
     /* Methods */
@@ -45,7 +50,7 @@ public class user {
      * output: n/a
      * Adds the given myCollection object to the collections array
      */
-    public void addCollection(myCollection c){
+    public void addCollection(MyCollection c){
         collections.add(c);
     }
 
@@ -56,19 +61,19 @@ public class user {
     public String getUid(){
     return this.uid;
     }
-    public Path getAvatar(){
+    public String getAvatar(){
         return this.avatar;
     }
     public String getBio(){
         return this.bio;
     }
-    public Color getColor(){
+    public int getColor(){
         return this.color;
     }
     public ArrayList<String> getFriends(){
         return this.friends;
     }
-    public ArrayList<myCollection> getCollections(){
+    public ArrayList<MyCollection> getCollections(){
         return this.collections;
     }
 }

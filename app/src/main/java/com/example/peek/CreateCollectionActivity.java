@@ -8,11 +8,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import backend.Database;
+import backend.user;
+import backend.Item;
+import backend.MyCollection;
 
 public class CreateCollectionActivity extends AppCompatActivity {
 
@@ -27,6 +33,15 @@ public class CreateCollectionActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_collection);
+
+        //BACKEND CONNECTION
+        Database db = new Database();
+        db.readAll();
+
+        //
+
+
+
 
         editTitle = findViewById(R.id.editTitle);
         editDescription = findViewById(R.id.editDescription);

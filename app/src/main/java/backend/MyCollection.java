@@ -1,29 +1,28 @@
 /*
  * 2025 Freshies
- * myCollection.java
+ * MyCollection.java
  * This Java file specifies how data is stored for each collection in the app.
  */
 
-import java.nio.file.Path;
+package backend;
 import java.util.ArrayList;
-import java.awt.Color;
 
 
-public class myCollection {
+public class MyCollection {
     /* Fields */
-    private String collectionID;
+    private int collectionID;
     private String ownerUID;
     private String name;
     private String description;
     private int starCount;
-    private Color col1;
-    private Color col2;
-    private Path icon;
+    private int col1;
+    private int col2;
+    private String icon;
     private ArrayList<Item> items = new ArrayList<Item>();
     /* Fields */
 
     /* Constructor */
-    public myCollection(String ID, String UID, String name, String description, Path icon){
+    public MyCollection(int ID, String UID, String name, String description, String icon){
         this.collectionID = ID;
         this.ownerUID = UID;
         this.name = name;
@@ -66,7 +65,7 @@ public class myCollection {
     }
 
     /* Methods: Getters */
-    public String getCollectionID(){
+    public int getCollectionID(){
         return this.collectionID;
     }
     public String getOwnerUID(){
@@ -81,19 +80,19 @@ public class myCollection {
     public int getStarCount(){
         return this.starCount;
     }
-    public Color getColor(int index){
+    public int getColor(int index){
         if(index == 1)
             return col1;
         else if(index == 2)
             return col2;
-        return null;
+        return 0;
     }
     public ArrayList<Item> getItems(){
         return this.items;
     }
 
     /* Methods: Setters */
-    public void setCollectionID(String collectionID){
+    public void setCollectionID(int collectionID){
         this.collectionID = collectionID;
     }
 
@@ -113,7 +112,7 @@ public class myCollection {
         this.starCount = starCount;
     }
 
-    public void setColor(int index, Color color){
+    public void setColor(int index, int color){
         if(index == 1)
             this.col1 = color;
         else if(index == 2)
@@ -122,5 +121,13 @@ public class myCollection {
 
     public void setItems(ArrayList<Item> items){
         this.items = items;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 }

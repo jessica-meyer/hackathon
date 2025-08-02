@@ -1,3 +1,4 @@
+package backend;
 /*
  * 2025 Freshies
  * Item.java
@@ -11,11 +12,11 @@ public class Item {
     private int position;
     private String name;
     private String caption;
-    private Path image;
+    private String image;
     private int stars;
 
     /* Constructor */
-    public Item(int position, String name, String caption, Path path){
+    public Item(int position, String name, String caption, String path){
         this.position = position;
         this.name = name;
         this.caption = caption;
@@ -35,7 +36,7 @@ public class Item {
         return caption;
     }
 
-    public Path getImage() {
+    public String getImage() {
         return image;
     }
 
@@ -56,7 +57,7 @@ public class Item {
         this.caption = caption;
     }
 
-    public void setImage(Path image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
