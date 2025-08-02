@@ -9,17 +9,17 @@ import java.nio.file.Path;
 public class Item {
     /* Fields */
     private int position;
-    private string name;
-    private string caption;
+    private String name;
+    private String caption;
     private Path image;
     private int stars;
 
     /* Constructor */
-    public Item(int position, string name, string caption, Path path){
+    public Item(int position, String name, String caption, Path path){
         this.position = position;
         this.name = name;
         this.caption = caption;
-        this.path = path;
+        this.image = path;
     }
 
     /* Methods: Getters */

@@ -6,13 +6,15 @@
 
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.awt.Color;
+
 
 public class myCollection {
     /* Fields */
-    private string collectionID;
-    private string ownerUID;
-    private string name;
-    private string description;
+    private String collectionID;
+    private String ownerUID;
+    private String name;
+    private String description;
     private int starCount;
     private Color col1;
     private Color col2;
@@ -21,7 +23,7 @@ public class myCollection {
     /* Fields */
 
     /* Constructor */
-    public myCollection(string ID, string UID, string name, string description, Path icon){
+    public myCollection(String ID, String UID, String name, String description, Path icon){
         this.collectionID = ID;
         this.ownerUID = UID;
         this.name = name;
@@ -64,16 +66,16 @@ public class myCollection {
     }
 
     /* Methods: Getters */
-    public string getcollectionID(){
+    public String getCollectionID(){
         return this.collectionID;
     }
-    public string getOwnerUID(){
+    public String getOwnerUID(){
         return this.ownerUID;
     }
-    public string getName(){
+    public String getName(){
         return this.name;
     }
-    public string getDescription(){
+    public String getDescription(){
         return this.description;
     }
     public int getStarCount(){

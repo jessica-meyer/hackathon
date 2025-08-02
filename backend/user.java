@@ -1,24 +1,26 @@
 /*
  * 2025 Freshies
- * database.java
+ * user.java
  * This Java file specifies how data is stored for each user in the app.
  */
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.awt.Color;
+
 
 public class user {
     /* Fields */
-    private string uid;
-    private string name;
+    private String uid;
+    private String name;
     private Path avatar;
-    private string bio;
+    private String bio;
     private Color color;
     private ArrayList<String> friends = new ArrayList<String>();
     private ArrayList<myCollection> collections = new ArrayList<myCollection>();
     /* Fields */
 
     /* Constructor */
-    public user(string uid, string name, Path avatar, string bio, Color color){
+    public user(String uid, String name, Path avatar, String bio, Color color){
         this.uid = uid;
         this.name = name;
         this.avatar = avatar;
@@ -29,17 +31,17 @@ public class user {
     /* Methods */
     /**
      * addFriend
-     * input: string
+     * input: String
      * output: n/a
      * Adds the given user id to the friends array
      */
-    public void addFriend(string uid){
+    public void addFriend(String uid){
         friends.add(uid);
     }
 
     /**
      * addCollection
-     * input: string
+     * input: String
      * output: n/a
      * Adds the given myCollection object to the collections array
      */
@@ -48,13 +50,16 @@ public class user {
     }
 
     /* Methods: Getters */
-    public string getName(){
+    public String getName(){
         return this.name;
     }
-    public Path getAvatar(){
-        return this.path;
+    public String getUid(){
+    return this.uid;
     }
-    public string getBio(){
+    public Path getAvatar(){
+        return this.avatar;
+    }
+    public String getBio(){
         return this.bio;
     }
     public Color getColor(){
