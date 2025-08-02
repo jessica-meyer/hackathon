@@ -41,10 +41,10 @@ public class user {
      * addCollection
      * input: string
      * output: n/a
-     * Creates a collection object from the given collection ID, and adds to array
+     * Adds the given myCollection object to the collections array
      */
-    public void addCollection(string collectionID){
-        //read collections folder and construct new collection object
+    public void addCollection(myCollection c){
+        collections.add(c);
     }
 
     /* Methods: Getters */
