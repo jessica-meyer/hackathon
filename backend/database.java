@@ -18,6 +18,7 @@ public class database {
     private User thisUser;
     private ArrayList<user> allUsers = new ArrayList<user>();
     private ArrayList<user> friends = new ArrayList<user>();
+    private ArrayList<myCollection> allCollections = new ArrayList<myCollection>();
 
     /* Methods */
     /**
@@ -38,18 +39,24 @@ public class database {
                 Color color = Color.decode(scanner.nextLine());
                 User user = new user(uid, name, avatar, bio, color);
                 while(!scanner.hasNextInt()){
-                    user.addFriend(scanner.next);
+                    user.addFriend(scanner.next());
                 }
                 while(scanner.hasNextInt()){
                     user.addCollection(readCollection(scanner.nextInt()));
                 }
+                scan.next();
             }
         }catch{
             //do something
         }
     }
 
-
+    /**
+     * readAll
+     * input: collectionID
+     * output: collection object
+     * Reads text files for data and converts to objects; main.
+     */
     public myCollection readCollection(int collectionID){
         try{
             String path = "collections/"
@@ -72,17 +79,8 @@ public class database {
                 Item item = new item(position, name, caption, itemPath);
                 thisCollection.addItem(item);
             }
+            allCollections.add(thisCollection);
             return thisCollection;
         }
     }
-
-    /*
-     * @demoUser
-        I love peeK
-        backend/images/avatars/demouser.jpg
-        I'm the first user of peeK!
-        #0000FF
-        @demoUser2 @grapevine
-        12345
-     */
 }
