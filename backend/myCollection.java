@@ -21,14 +21,11 @@ public class myCollection {
     /* Fields */
 
     /* Constructor */
-    public myCollection(string ID, string UID, string name, string description, int starCount, Color c1, Color c2, Path icon){
+    public myCollection(string ID, string UID, string name, string description, Path icon){
         this.collectionID = ID;
         this.ownerUID = UID;
         this.name = name;
         this.description = description;
-        this.starCount = starCount;
-        this.col1 = c1;
-        this.col2 = c2;
         this.icon = icon;
     }
     

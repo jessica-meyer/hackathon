@@ -15,12 +15,11 @@ public class Item {
     private int stars;
 
     /* Constructor */
-    public Item(int position, string name, string caption, Path path, int stars){
+    public Item(int position, string name, string caption, Path path){
         this.position = position;
         this.name = name;
         this.caption = caption;
         this.path = path;
-        this.stars = stars;
     }
 
     /* Methods: Getters */
