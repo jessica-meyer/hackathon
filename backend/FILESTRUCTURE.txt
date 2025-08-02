@@ -29,6 +29,7 @@ they are stored notates the order they are displayed)
 (/ is used so that captions can be multi lined, so it can take up as many lines as it needs)
 
 item number
+item starCount
 item name
 /
 item caption
