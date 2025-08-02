@@ -1,17 +1,16 @@
 /*
  * 2025 Freshies
- * myCollection.java
+ * MyCollection.java
  * This Java file specifies how data is stored for each collection in the app.
  */
 
 package backend;
 import java.util.ArrayList;
-import android.graphics.Color;
 
 
 public class MyCollection {
     /* Fields */
-    private String collectionID;
+    private int collectionID;
     private String ownerUID;
     private String name;
     private String description;
@@ -23,7 +22,7 @@ public class MyCollection {
     /* Fields */
 
     /* Constructor */
-    public myCollection(String ID, String UID, String name, String description, String icon){
+    public MyCollection(int ID, String UID, String name, String description, String icon){
         this.collectionID = ID;
         this.ownerUID = UID;
         this.name = name;
@@ -66,7 +65,7 @@ public class MyCollection {
     }
 
     /* Methods: Getters */
-    public String getCollectionID(){
+    public int getCollectionID(){
         return this.collectionID;
     }
     public String getOwnerUID(){
@@ -86,14 +85,14 @@ public class MyCollection {
             return col1;
         else if(index == 2)
             return col2;
-        return null;
+        return 0;
     }
     public ArrayList<Item> getItems(){
         return this.items;
     }
 
     /* Methods: Setters */
-    public void setCollectionID(String collectionID){
+    public void setCollectionID(int collectionID){
         this.collectionID = collectionID;
     }
 
@@ -122,5 +121,13 @@ public class MyCollection {
 
     public void setItems(ArrayList<Item> items){
         this.items = items;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 }
