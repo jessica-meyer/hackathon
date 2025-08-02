@@ -2,40 +2,44 @@ package com.example.peek;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
-public class MyCollections extends AppCompatActivity {
-
+public class IndividualCollections extends AppCompatActivity {
     ImageButton btnFriends, btnSearch, btnAdd, btnCollections;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.my_collections); // ← change to your layout filename
+        setContentView(R.layout.collection_individual); // change this!
 
-        // Initialize bottom bar buttons
-        btnFriends = findViewById(R.id.btnFriends);
-        btnSearch = findViewById(R.id.btnSearch);
-        btnAdd = findViewById(R.id.btnAdd);
-        btnCollections = findViewById(R.id.btnCollections);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Show back arrow
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            getSupportActionBar().setTitle(""); // Optional: clear default title
+        }
 
         btnFriends.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Go to PeopleActivity
-                Intent intent = new Intent(MyCollections.this, FriendsActivity.class);
+                Intent intent = new Intent(IndividualCollections.this, FriendsActivity.class);
                 startActivity(intent);
             }
         });
-        
+
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Go to SearchActivity
-                Intent intent = new Intent(MyCollections.this, SearchActivity.class);
+                Intent intent = new Intent(IndividualCollections.this, SearchActivity.class);
                 startActivity(intent);
             }
         });
@@ -44,7 +48,7 @@ public class MyCollections extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Go to AddActivity
-                Intent intent = new Intent(MyCollections.this, CreateCollectionActivity.class);
+                Intent intent = new Intent(IndividualCollections.this, CreateCollectionActivity.class);
                 startActivity(intent);
             }
         });
@@ -53,9 +57,19 @@ public class MyCollections extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Go to BoxActivity
-                Intent intent = new Intent(MyCollections.this, MyCollections.class);
+                Intent intent = new Intent(IndividualCollections.this, MyCollections.class);
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            Intent intent = new Intent(this, MyCollections.class);
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
