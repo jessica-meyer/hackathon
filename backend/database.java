@@ -5,6 +5,7 @@
 * user, collection, and item objects.
 */
 
+//Read FILESTRUCTURE.txt for a better understanding of scanner
 //Run readAll, then use getters to get info
 
 import java.io.File;
@@ -86,7 +87,7 @@ public class database {
             String name = scanner.nextLine();
             String description = scanner.nextLine();
             String stringimagePath = scanner.nextLine();
-            Path imagePath = Paths.get(stringimagePath);
+            Path imagePath = Paths.get(stringimagePath+"/c.jpg");
             myCollection thisCollection = new myCollection(collectionID, ownerUID, name, description,imagePath);
             while(scanner.hasNextLine()){
                 scanner.nextLine();
@@ -94,7 +95,17 @@ public class database {
                 scanner.nextLine();
                 String itemName = scanner.nextLine();
                 scanner.nextLine();
-                String caption = scanner.nextLine();
+
+                StringBuilder captionBuilder = new StringBuilder();
+                String line;
+                // Loop to accomodate multiline captions
+                while (scanner.hasNextLine()) {
+                    line = scanner.nextLine();
+                    if (line.trim().equals("/")) break; // End of caption block
+                    captionBuilder.append(line).append("\n");
+                }
+                String caption = captionBuilder.toString().trim();
+                
                 scanner.nextLine();
                 Path itemPath = Paths.get(stringimagePath + "/" + position + ".jpg");
                 Item item = new item(position, itemName, caption, itemPath);
