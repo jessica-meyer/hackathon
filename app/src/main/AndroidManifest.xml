@@ -19,14 +19,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".FriendsActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-        </activity>
-    </application>
+            android:exported="false" />
+        <activity
+            android:name=".MyCollections"
+            android:exported="false" />
+        <activity
+            android:name=".CreateCollectionActivity"
+            android:exported="false" />
 
+    </application>
 </manifest>
