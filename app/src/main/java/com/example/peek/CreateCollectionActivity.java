@@ -38,6 +38,7 @@ public class CreateCollectionActivity extends AppCompatActivity {
         Database db = new Database();
         db.readAll();
 
+
         //
 
 

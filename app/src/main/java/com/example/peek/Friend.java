@@ -1,4 +1,5 @@
 package com.example.peek;
+import backend.user;
 
 public class Friend {
     private String name;
@@ -11,6 +12,11 @@ public class Friend {
         this.username = username;
         this.imageResId = imageResId;
         this.isStarred = isStarred;
+    }
+
+    public static Friend userToFriend(user u){
+        String name = u.getName();
+        return new Friend(u.getName(),u.getUid(), R.drawable.placeholder, false);
     }
 
     // Getters and setters...

@@ -1,5 +1,7 @@
 package com.example.peek;
 
+import static com.example.peek.Friend.userToFriend;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +15,9 @@ import com.example.peek.R;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import backend.Database;
+import backend.user;
 
 public class FriendsActivity extends AppCompatActivity {
 
@@ -30,12 +35,13 @@ public class FriendsActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Example dummy data
+        // backend stuff
+        Database db = new Database();
+        db.readAll();
         friendList = new ArrayList<>();
-        friendList.add(new Friend("Jessica Meyer", "jessica123", R.drawable.placeholder, false));
-        friendList.add(new Friend("John Doe", "john_doe", R.drawable.placeholder, false));
-        friendList.add(new Friend("Alice Smith", "alice_s", R.drawable.placeholder, false));
-        friendList.add(new Friend("Alice Smith", "alice_s", R.drawable.placeholder, false));
+        for(user u: db.getallUsers()){
+            friendList.add(userToFriend(u));
+        }
 
         adapter = new FriendAdapter(this, friendList);
         recyclerView.setAdapter(adapter);
