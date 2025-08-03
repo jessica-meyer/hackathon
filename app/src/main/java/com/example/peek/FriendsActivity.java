@@ -32,10 +32,10 @@ public class FriendsActivity extends AppCompatActivity {
 
         // Example dummy data
         friendList = new ArrayList<>();
-        friendList.add(new Friend("Jessica Meyer", "jessica123", R.drawable.placeholder, false));
-        friendList.add(new Friend("John Doe", "john_doe", R.drawable.placeholder, false));
-        friendList.add(new Friend("Alice Smith", "alice_s", R.drawable.placeholder, false));
-        friendList.add(new Friend("Alice Smith", "alice_s", R.drawable.placeholder, false));
+        friendList.add(new Friend("Bob", "legofan55", R.drawable.lego_placeholder, false));
+        friendList.add(new Friend("Clover", "cavoodleClover", R.drawable.clover_placeholder, false));
+        friendList.add(new Friend("Aroha Kiri", "fruitSalad", R.drawable.aroha_placeholder, false));
+        friendList.add(new Friend("Labubu Lover", "skibidiRizzler", R.drawable.skibidi_placeholder, false));
 
         adapter = new FriendAdapter(this, friendList);
         recyclerView.setAdapter(adapter);
