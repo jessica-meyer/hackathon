@@ -14,11 +14,6 @@ public class Friend {
         this.isStarred = isStarred;
     }
 
-    public static Friend userToFriend(user u){
-        String name = u.getName();
-        return new Friend(u.getName(),u.getUid(), R.drawable.placeholder, false);
-    }
-
     // Getters and setters...
     public String getName() { return name; }
     public String getUsername() { return username; }

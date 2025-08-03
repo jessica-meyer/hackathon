@@ -54,6 +54,10 @@ public class MyCollection {
         this.items.remove(item);
     }
 
+    public String toString(){
+        return ("collectionid:" + this.collectionID +"Owner: "+ this.ownerUID + "Name: " + name);
+    }
+
     /**
      * star
      * input: n/a

@@ -1,5 +1,6 @@
 package com.example.peek;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -24,6 +25,16 @@ public class FriendsActivity extends Fragment  {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_freinds, container, false);
+
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // backend stuff
+        Database db = new Database();
+        db.readAll(this);
+        friendList = new ArrayList<>();
+        for(user u: db.getallUsers()){
+            friendList.add(Database.userToFriend(u));
 
         Toolbar toolbar = view.findViewById(R.id.toolbar);
         if (getActivity() instanceof AppCompatActivity) {
