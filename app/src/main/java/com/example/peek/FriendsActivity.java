@@ -37,9 +37,10 @@ public class FriendsActivity extends AppCompatActivity {
         Database db = new Database();
         db.readAll(this);
         friendList = new ArrayList<>();
-        for(user u: db.getallUsers()){
-            friendList.add(Database.userToFriend(u));
-        }
+        friendList.add(new Friend("Bob", "legofan55", R.drawable.lego_placeholder, false));
+        friendList.add(new Friend("Clover", "cavoodleClover", R.drawable.clover_placeholder, false));
+        friendList.add(new Friend("Aroha Kiri", "fruitSalad", R.drawable.aroha_placeholder, false));
+        friendList.add(new Friend("Labubu Lover", "skibidiRizzler", R.drawable.skibidi_placeholder, false));
 
         adapter = new FriendAdapter(this, friendList);
         recyclerView.setAdapter(adapter);

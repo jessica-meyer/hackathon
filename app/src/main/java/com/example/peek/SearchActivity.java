@@ -9,7 +9,6 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 public class SearchActivity extends AppCompatActivity {
 
