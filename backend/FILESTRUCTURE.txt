@@ -1,0 +1,36 @@
+users.txt contains each user and their associated info in the 'database'
+Each field for a given user is on one line. Structure goes as follows:
+UID
+name
+avatar path
+bio
+color
+@friendID @friendID @friendID (separated by spaces)
+collectionID collectionID (separated by spaces)
+
+(empty line means end of user data)
+
+
+the collections folder holds every collection in the 'database' and the 
+associated info with the collection. the structure goes as follows, again
+separated by line:
+
+uid of collection owner
+name of collection
+description
+stars
+color1
+color2
+imagePath
+
+(an empty space is used here to signal that this is the end of collection
+data. Below this is info regarding the items in the collection. the order
+they are stored notates the order they are displayed)
+(/ is used so that captions can be multi lined, so it can take up as many lines as it needs)
+
+item number
+item name
+/
+item caption
+/
+
