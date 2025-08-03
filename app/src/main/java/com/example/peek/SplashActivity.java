@@ -16,7 +16,7 @@ public class SplashActivity extends AppCompatActivity {
 
         new Handler().postDelayed(() -> {
             // Go to main screen
-            Intent intent = new Intent(SplashActivity.this, FriendsActivity.class);
+            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);
             finish(); // close splash screen so user can't return to it
         }, SPLASH_DURATION);
