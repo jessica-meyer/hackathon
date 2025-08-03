@@ -2,29 +2,33 @@ package com.example.peek;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageButton;
-import android.widget.TextView;
-
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.appcompat.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import android.widget.ImageButton;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class FriendsActivity extends Fragment  {
+import com.example.peek.R;
 
-    @Nullable
+import java.util.ArrayList;
+import java.util.List;
+
+import backend.Database;
+import backend.user;
+
+public class FriendsActivity extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private FriendAdapter adapter;
+    private List<Friend> friendList;
+
+    ImageButton btnFriends, btnSearch, btnAdd, btnCollections;
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_freinds, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_friends); // your layout with RecyclerView
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -35,40 +39,51 @@ public class FriendsActivity extends Fragment  {
         friendList = new ArrayList<>();
         for(user u: db.getallUsers()){
             friendList.add(Database.userToFriend(u));
-
-        Toolbar toolbar = view.findViewById(R.id.toolbar);
-        if (getActivity() instanceof AppCompatActivity) {
-            ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         }
 
-        // DATABASE VARIABLES
-        String userName = "username placeholder";
-        String name = "name placeholder";
+        adapter = new FriendAdapter(this, friendList);
+        recyclerView.setAdapter(adapter);
 
-        TextView textViewUsername = view.findViewById(R.id.textViewUsername);
-        textViewUsername.setText(userName);
+        // Initialize bottom bar buttons
+        btnFriends = findViewById(R.id.btnFriends);
+        btnSearch = findViewById(R.id.btnSearch);
+        btnAdd = findViewById(R.id.btnAdd);
+        btnCollections = findViewById(R.id.btnCollections);
 
-        TextView textViewName = view.findViewById(R.id.textViewName);
-        textViewName.setText(name);
-
-        ImageButton imageButton = view.findViewById(R.id.imageButton);
-        final boolean[] isToggled = {false};
-
-        imageButton.setOnClickListener(v -> {
-            if (isToggled[0]) {
-                imageButton.setImageResource(R.drawable.ic_star_outline); // back to first image
-            } else {
-                imageButton.setImageResource(R.drawable.stars_for_now); // change to second image
+        btnFriends.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Go to PeopleActivity
+                Intent intent = new Intent(FriendsActivity.this, FriendsActivity.class);
+                startActivity(intent);
             }
-            isToggled[0] = !isToggled[0];
         });
 
-        ViewCompat.setOnApplyWindowInsetsListener(view.findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Go to SearchActivity
+                Intent intent = new Intent(FriendsActivity.this, SearchActivity.class);
+                startActivity(intent);
+            }
         });
 
-        return view;
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Go to AddActivity
+                Intent intent = new Intent(FriendsActivity.this, CreateCollectionActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnCollections.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Go to BoxActivity
+                Intent intent = new Intent(FriendsActivity.this, MyCollections.class);
+                startActivity(intent);
+            }
+        });
     }
 }
