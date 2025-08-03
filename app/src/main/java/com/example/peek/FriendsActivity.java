@@ -14,6 +14,9 @@ import com.example.peek.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import backend.Database;
+import backend.user;
+
 public class FriendsActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -30,7 +33,9 @@ public class FriendsActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Example dummy data
+        // backend stuff
+        Database db = new Database();
+        db.readAll(this);
         friendList = new ArrayList<>();
         friendList.add(new Friend("Bob", "legofan55", R.drawable.lego_placeholder, false));
         friendList.add(new Friend("Clover", "cavoodleClover", R.drawable.clover_placeholder, false));

@@ -1,4 +1,5 @@
 package com.example.peek;
+import backend.user;
 
 public class Friend {
     private String name;

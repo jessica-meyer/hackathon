@@ -6,9 +6,9 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 public class MyCollections extends AppCompatActivity {
-
     ImageButton btnFriends, btnSearch, btnAdd, btnCollections;
 
     @Override
