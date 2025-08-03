@@ -34,13 +34,6 @@ public class CreateCollectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_collection);
 
-        //BACKEND CONNECTION
-        Database db = new Database();
-        db.readAll();
-
-
-        //
-
 
 
 

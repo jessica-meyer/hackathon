@@ -1,7 +1,5 @@
 package com.example.peek;
 
-import static com.example.peek.Friend.userToFriend;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -37,10 +35,10 @@ public class FriendsActivity extends AppCompatActivity {
 
         // backend stuff
         Database db = new Database();
-        db.readAll();
+        db.readAll(this);
         friendList = new ArrayList<>();
         for(user u: db.getallUsers()){
-            friendList.add(userToFriend(u));
+            friendList.add(Database.userToFriend(u));
         }
 
         adapter = new FriendAdapter(this, friendList);

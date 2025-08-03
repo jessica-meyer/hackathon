@@ -5,6 +5,8 @@
  */
 
 package backend;
+import androidx.annotation.NonNull;
+
 import backend.MyCollection;
 import backend.Item;
 import java.nio.file.Path;
@@ -52,6 +54,11 @@ public class user {
      */
     public void addCollection(MyCollection c){
         collections.add(c);
+    }
+
+    @NonNull
+    @Override public String toString(){
+        return ("uid: " + this.uid + "name: " + this.name);
     }
 
     /* Methods: Getters */
